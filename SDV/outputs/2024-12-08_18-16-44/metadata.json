@@ -1,0 +1,129 @@
+{
+    "tables": {
+        "table": {
+            "columns": {
+                "ID": {
+                    "sdtype": "id",
+                    "regex_format": "\\d{1,5}"
+                },
+                "Candidate State": {
+                    "sdtype": "categorical"
+                },
+                "Age Range": {
+                    "sdtype": "categorical"
+                },
+                "Residence": {
+                    "sdtype": "categorical"
+                },
+                "Sex": {
+                    "sdtype": "categorical"
+                },
+                "Protected category": {
+                    "sdtype": "categorical"
+                },
+                "TAG": {
+                    "sdtype": "categorical"
+                },
+                "Study area": {
+                    "sdtype": "categorical"
+                },
+                "Study Title": {
+                    "sdtype": "categorical"
+                },
+                "Years Experience": {
+                    "sdtype": "categorical"
+                },
+                "Sector": {
+                    "sdtype": "categorical"
+                },
+                "Last Role": {
+                    "sdtype": "categorical"
+                },
+                "Year of insertion": {
+                    "sdtype": "categorical"
+                },
+                "Year of Recruitment": {
+                    "sdtype": "categorical"
+                },
+                "Recruitment Request": {
+                    "sdtype": "categorical"
+                },
+                "Assumption Headquarters": {
+                    "sdtype": "categorical"
+                },
+                "Job Family Hiring": {
+                    "sdtype": "categorical"
+                },
+                "Job Title Hiring": {
+                    "sdtype": "categorical"
+                },
+                "event_type__val": {
+                    "sdtype": "categorical"
+                },
+                "event_feedback": {
+                    "sdtype": "categorical"
+                },
+                "linked_search__key": {
+                    "sdtype": "categorical"
+                },
+                "Overall": {
+                    "sdtype": "categorical"
+                },
+                "Job Description": {
+                    "sdtype": "categorical"
+                },
+                "Candidate Profile": {
+                    "sdtype": "categorical"
+                },
+                "Years Experience.1": {
+                    "sdtype": "categorical"
+                },
+                "Minimum Ral": {
+                    "sdtype": "categorical"
+                },
+                "Ral Maximum": {
+                    "sdtype": "categorical"
+                },
+                "Study Level": {
+                    "sdtype": "categorical"
+                },
+                "Study Area.1": {
+                    "sdtype": "categorical"
+                },
+                "Akkodis headquarters": {
+                    "sdtype": "categorical"
+                },
+                "Current Ral": {
+                    "sdtype": "categorical"
+                },
+                "Expected Ral": {
+                    "sdtype": "categorical"
+                },
+                "Technical Skills": {
+                    "sdtype": "categorical"
+                },
+                "Standing/Position": {
+                    "sdtype": "categorical"
+                },
+                "Comunication": {
+                    "sdtype": "categorical"
+                },
+                "Maturity": {
+                    "sdtype": "categorical"
+                },
+                "Dynamism": {
+                    "sdtype": "categorical"
+                },
+                "Mobility": {
+                    "sdtype": "categorical"
+                },
+                "English": {
+                    "sdtype": "categorical"
+                }
+            },
+            "sequence_key": "ID"
+        }
+    },
+    "relationships": [],
+    "METADATA_SPEC_VERSION": "V1"
+}
