@@ -3,6 +3,13 @@ import pandas as pd
 from sdv.sequential import PARSynthesizer
 from io import BytesIO
 
+'''
+ Functions used in webapp for:
+ 1) Calculating the number of sequences the synthesizer needs to generate per variable;
+ 2) Synthetic data generation (one per variable);
+ 3) Converting the df to an Excel file suitable for downloading through the Streamlit UI.
+ '''
+
 @st.cache_data
 def sequencefraq(var, sequences):
     if var == 0:
@@ -69,10 +76,6 @@ def to_excel(df):
     output = BytesIO()
     writer = pd.ExcelWriter(output, engine='xlsxwriter')
     df.to_excel(writer, index=False)
-    # workbook = writer.book
-    # worksheet = writer.sheets['Sheet1']
-    # format1 = workbook.add_format({'num_format': '0.00'}) 
-    # worksheet.set_column('A:A', None, format1)  
     writer.close()
     processed_data = output.getvalue()
     return processed_data
@@ -82,7 +85,8 @@ synthesizer = PARSynthesizer.load(
     filepath='webapp/synthesizer_1000_nocuda.pkl'
 )
 
-#Start of Webpage
+#Start of interface
+
 st.title("Synthetic Data Generator")
 st.write("Select a variable to create a bias (optional), pick a number of candidates to be generated and get an Excel file at the press of a button.")
 st.subheader("Bias Selection (optional)")
@@ -91,6 +95,8 @@ biascat = st.selectbox(
     "**Select the variable you want to introduce bias for**",
     ("None", "Sex", "Age Range", "Study Title"),
 )
+
+# Dynamic part of interface based on selected variable
 
 if biascat == "None":
     st.subheader("Dataset Size Selection")
