@@ -3,6 +3,7 @@ import pandas as pd
 from sdv.sequential import PARSynthesizer
 from sdv.sampling import Condition
 from io import BytesIO
+from sdmetrics.visualization import get_column_plot
 
 # Configurations
 CONFIG = {
@@ -11,11 +12,11 @@ CONFIG = {
         "Sex": {"Male": 50, "Female": 50},
         "Age Range": {
             "< 20 years": 8,
-            "20-25 years": 27,
-            "26-30 years": 46,
-            "31-35 years": 9,
-            "36-40 years": 4,
-            "40-45 years": 2,
+            "20 - 25 years": 27,
+            "26 - 30 years": 46,
+            "31 - 35 years": 9,
+            "36 - 40 years": 4,
+            "40 - 45 years": 2,
             "> 45 years": 4,
         },
         "Study Title": {
@@ -29,6 +30,14 @@ CONFIG = {
         },
     },
 }
+
+# Load the real data
+@st.cache_data
+def load_real_data(filepath):
+    return pd.read_csv(filepath)
+
+real_data_sin = load_real_data("webapp/real_data_sin.csv")
+real_data_seq = load_real_data("webapp/real_data_seq.csv")
 
 # Generalized functions
 def generate_bias_inputs(category_names, default_values):
@@ -145,3 +154,14 @@ else:
                 file_name="synthetic_data.xlsx",
                 mime="application/vnd.ms-excel",
             )
+            # Generate and display the column plot
+            if is_sequential:
+                real_data = real_data_seq
+            else:
+                real_data = real_data_sin
+                
+            st.subheader("Comparison with Real Data")
+            fig = get_column_plot(
+                real_data=real_data, synthetic_data=df, column_name=biascat
+            )
+            st.plotly_chart(fig, use_container_width=True)
