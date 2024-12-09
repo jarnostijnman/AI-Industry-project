@@ -24,7 +24,7 @@ def generate_data_no_bias(sequences=150):
     return synthetic_data
 
 @st.cache_data
-def generate_data_sex(model, male=50, female=50, sequences=150):
+def generate_data_sex(male=50, female=50, sequences=150):
     maleseq = sequencefraq(male, sequences)
     femaleseq = sequencefraq(female, sequences)
     scenario_context = pd.DataFrame(data={
@@ -75,7 +75,7 @@ def generate_data_study_title(study1=0, study2=4, study3=39, study4=53, study5=2
     return biased_sample
 
 @st.cache_data
-def generate_data_single(custom_synthesizer, column_name, category_percentages, num_rows):
+def generate_data_single(_custom_synthesizer, column_name, category_percentages, num_rows):
     """
     Generate simulated synthetic data based on user-defined column, percentages, and number of rows.
     
@@ -99,7 +99,7 @@ def generate_data_single(custom_synthesizer, column_name, category_percentages, 
         ))
     
     # Generate synthetic data using the conditions
-    simulated_synthetic_data = custom_synthesizer.sample_from_conditions(conditions=category_conditions)
+    simulated_synthetic_data = _custom_synthesizer.sample_from_conditions(conditions=category_conditions)
     
     return simulated_synthetic_data
 
