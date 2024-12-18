@@ -1,5 +1,5 @@
 streamlit
 pandas
 sdv
-sdmetrics
+sdmetrics==1.17.2
 openpyxl
