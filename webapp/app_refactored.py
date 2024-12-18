@@ -118,6 +118,7 @@ st.subheader("Bias Selection (optional)")
 biascat = st.selectbox("Select the variable you want to introduce bias for", CONFIG["bias_options"])
 
 if biascat == "None":
+    st.subheader("Output Size")
     num_sequences = get_dataset_size_input("Enter the number of rows to generate")
     if st.button("Generate Data"):
         st.write("Generating unbiased data...")
@@ -137,6 +138,7 @@ else:
     if sum(category_percentages.values()) != 100:
         st.write(f"The percentages add up to {sum(category_percentages.values())}%. Make sure they add up to 100% to continue.")
     else:
+        st.subheader("Output Size")
         num_sequences = get_dataset_size_input("Enter the number of rows to generate")
         if st.button("Generate Data"):
             st.write(f"Generating biased data for {biascat}...")
