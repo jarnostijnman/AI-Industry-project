@@ -3,3 +3,4 @@ pandas
 sdv==1.17.2
 sdmetrics
 openpyxl
+xlsxwriter
